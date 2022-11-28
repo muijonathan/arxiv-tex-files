@@ -754,34 +754,47 @@ As an application of the results thus far, we show that the function defined by 
 
 \begin{proposition}
   \label{prop:eta-series}
-  Let $\eta(t, \omega, y)$ be defined by~\eqref{eq:eta-Fourier-series}. Then
+  Let $\eta(t, \omega, y)$ be defined by~\eqref{eq:eta-Fourier-series}, and let $M:=\sup_{\omega\in\RR}\|\hat{u}_0(\omega,\cdot)\|_{L^2(\Omega)}$. Then, for every $k\in\NN$ satisfying $k>\frac{N}{4}$, there exists a constant $C_k>0$ such that
   \begin{equation}
     \label{eq:eta-Fourier-series-estimate}
     \int_\RR \| \eta(t, \omega, \cdot) \|_{L^2(\Omega)} \,d\omega
-    \leq 2\pi\int_{\RR}\|u_0(\omega,\cdot)\|_{L^2(\Omega)}\,d\omega
+    \leq C_k M t^{-(\frac{k}{2}+\frac{1}{4})}
   \end{equation}
-  and
-  \begin{equation}
-    \label{eq:eta-Fourier-series-estimate-sup}
-    \sum_{n=1}^\infty e^{-2t\mu_n(\omega)} |A_n(\omega)|^2
-    \leq \sup_{\omega\in\RR}\|\widehat{u}_0(\omega,\cdot)\|_{L^2(\Omega)}<\infty
-  \end{equation}
-  for all $t\geq 0$.
+  for all $t>0$. In particular, $\eta(t) \in L^1(\RR,L^2(\Omega))$ for every $t>0$.
 \end{proposition}
 \begin{proof}
-  Fix $\omega \in \RR$. By Lemma~\ref{lem:mu-omegas}(i), we have for each $n \in \NN$ and $\omega\in\RR$
-  \begin{equation*}
-    \mu_n(\omega) \ge \alpha_n + \omega^4\geq \alpha_n>0.
-  \end{equation*}
-  Since the eigenfunctions $(\phi_n(\omega, \cdot))_{n \ge 1}$ were chosen to form an orthonormal basis of $L^2(\Omega)$, by Parseval's identity for Fourier series we obtain
-  \begin{equation*}
-    \label{eq:eta-series1}
-    \| \eta(t, \omega, \cdot) \|_{L^2(\Omega)}^2
-    =\sum_{n=1}^\infty e^{-2t\mu_n(\omega)} |A_n(\omega)|^2
-    \leq\sum_{n=1}^\infty |A_n(\omega)|^2
-    =\|\widehat{u}_0(\omega,\cdot)\|^2_{L^2(\Omega)}.
-  \end{equation*}
-  Integrating this inequality and taking into account~\eqref{eq:u0-hat-plancerel} yields~\eqref{eq:eta-Fourier-series-estimate}. Inequality~\eqref{eq:eta-Fourier-series-estimate-sup} follows from~\eqref{eq:u0-hat-bounded}.
+  Firstly, recall from~\eqref{eq:u0-hat-bounded} that $M<\infty$. Since the eigenfunctions $(\phi_n(\omega, \cdot))_{n \ge 1}$ were chosen to form an orthonormal basis of $L^2(\Omega)$, by Parseval's identity for Fourier series we obtain
+  \begin{equation}
+  \label{eq:eta-L2-norm}
+  	\| \eta(t, \omega, \cdot) \|_{L^2(\Omega)}^2 = \sum_{n=1}^\infty e^{-2t\mu_n(\omega)} |A_n(\omega)|^2.
+  \end{equation}
+ Applying the Cauchy-Schwarz inequality to~\eqref{eq:An}, we find
+ \begin{equation}
+ \label{eq:eta-Fourier-series-estimate-sup}
+ 	|A_n(\omega)| \le \|\hat{u}_0(\omega,\cdot)\|_{L^2(\Omega)} \|\phi_n(\omega,\cdot)\|_{L^2(\Omega)} \le M
+ \end{equation}
+ for all $\omega\in\RR$ and $n\in\NN$. By Lemma~\ref{lem:mu-omegas}(i), we also have
+ \begin{equation*}
+ 	\mu_n(\omega) \ge \alpha_n + \omega^4
+ \end{equation*}
+ for each $n \in \NN$ and $\omega\in\RR$.
+ 
+ We substitute the above results into~\eqref{eq:eta-L2-norm} to obtain
+ \begin{equation}
+ \label{eq:eta-L2-norm-2}
+ 	\| \eta(t, \omega, \cdot) \|_{L^2(\Omega)}^2 \le M^2 \sum_{n=1}^\infty e^{-2t(\alpha_n+\omega^4)} = M^2 e^{-2t\omega^4} \sum_{n=1}^\infty e^{-2t\alpha_n}
+ \end{equation}
+ for every $\omega\in\RR$. Since $k>\frac{N}{4}$, Corollary~\ref{cor:eig-series} shows that
+ \begin{equation*}
+ 	K_t := \sum_{n=1}^\infty e^{-2t\alpha_n} \le \frac{k!}{2^k t^k} \sum_{n=1}^\infty \frac{1}{\alpha_n^k} < \infty
+ \end{equation*}
+ for every $t>0$, where we have used the elementary inequality $e^{-x}\le\frac{k!}{x^k}$ which holds for all $x>0$ and $k\in\NN$. From the above estimate and~\eqref{eq:eta-L2-norm-2}, we conclude
+ \begin{align*}
+ 	\int_\RR \|\eta(t,\omega,\cdot)\|_{L^2(\Omega)}\,d\omega &\le MK_t^{1/2} \int_\RR e^{-t\omega^4}\,d\omega \\
+ 	&\le \left[\frac{k!}{2^k}\sum_{n=1}^\infty\frac{1}{\alpha_n^k}\right]^{1/2} M t^{-\frac{k}{2}} \frac{1}{t^{1/4}} \int_\RR e^{-s^4}\,ds \\
+ 	&= C_k M t^{-(\frac{k}{2}+\frac{1}{4})},
+ \end{align*}
+ for every $t>0$, where the constant $C_k$ is explicitly given above.
 \end{proof}
 
 % L-infty bound
@@ -920,7 +933,7 @@ All the ingredients needed for the main result are now in place.
     u(t,x,y)
     = \frac{1}{\sqrt{2\pi}}\int_{\RR} \left[ \sum_{n=1}^\infty e^{-t \mu_n(\omega)} A_n(\omega) \phi_n(\omega, y) \right] e^{i \omega x} \,d\omega
   \end{equation*}
-  which is well-defined due to Proposition~\ref{prop:eta-series}. Splitting off the first term, we obtain
+  which is well-defined for all $t>0$ due to Proposition~\ref{prop:eta-series}. Splitting off the first term, we obtain
   \begin{multline}
     \label{eq:u-split1}
     u(t,x,y)
@@ -939,16 +952,16 @@ All the ingredients needed for the main result are now in place.
   \begin{equation*}
     f(x,\omega,y):=\sqrt{2\pi}A_1(\omega)\phi_1(\omega,y)e^{i\omega x},
   \end{equation*}
-  and let $\varphi_t$ be the approximate identity defined in Corollary~\ref{cor:approx-id-mu} below. Then
+  and let $\psi_t$ denote the approximate identity defined in Corollary~\ref{cor:approx-id-mu} below. Then
   \begin{multline*}
     \frac{c_t}{\sqrt{2\pi}}\int_{\RR} e^{-t \mu_1(\omega)} A_1(\omega) \phi_1(\omega, y) e^{i\omega x} \,d\omega\\
-    =\sqrt{2\pi}\int_{\RR^N}\varphi_t(\omega)A_1(\omega) \phi_1(\omega, y) e^{i\omega x} \,d\omega
-    =\bigl(\check\varphi_t*f(x\,,\cdot\,,y)\bigr)(0),
+    =\sqrt{2\pi}\int_{\RR^N}\psi_t(\omega)A_1(\omega) \phi_1(\omega, y) e^{i\omega x} \,d\omega
+    =\bigl(\check\psi_t*f(x\,,\cdot\,,y)\bigr)(0),
   \end{multline*}
-  where, as in the proof of Theorem~\ref{thm:BHE-Rn}, $\check\varphi_t(\omega):=\varphi_t(-\omega)$ for all $\omega\in\RR$.  Proposition~\ref{prop:cont-phi-1} asserts that $\mu_1\in C(\RR)$, and that for any compact interval $I=[-r,r]$ there exists an interval $J = [-\delta,\delta]$ such that $\varphi\in C(J\times\overline{\Omega})$. Hence $f\colon I\times J\times\overline{\Omega} \to \CC$ is continuous and thus uniformly continuous. This means that $\omega\mapsto f(x,\omega,y)$ is continuous at $\omega=0$ uniformly with respect to $(x,y)\in I\times\overline{\Omega}$. It follows from Lemma~\ref{lem:approx-id} and Corollary~\ref{cor:approx-id-mu} that
+  where, as in the proof of Theorem~\ref{thm:BHE-Rn}, $\check\psi_t(\omega):=\psi_t(-\omega)$ for all $\omega\in\RR$.  Proposition~\ref{prop:cont-phi-1} asserts that $\mu_1\in C(\RR)$, and that for any compact interval $I=[-r,r]$ there exists an interval $J = [-\delta,\delta]$ such that $\phi_1\in C(J\times\overline{\Omega})$. Hence $f\colon I\times J\times\overline{\Omega} \to \CC$ is continuous and thus uniformly continuous. This means that $\omega\mapsto f(x,\omega,y)$ is continuous at $\omega=0$ uniformly with respect to $(x,y)\in I\times\overline{\Omega}$. It follows from Lemma~\ref{lem:approx-id} and Corollary~\ref{cor:approx-id-mu} that
   \begin{equation*}
     \lim_{t\to\infty}\frac{c_t}{\sqrt{2\pi}}\int_{\RR} e^{-t \mu_1(\omega)} A_1(\omega) \phi_1(\omega, y) e^{i\omega x} \,d\omega
-    =\lim_{t\to\infty}\bigl(\check\varphi_t*f(x\,,\cdot\,,y)\bigr)(0)
+    =\lim_{t\to\infty}\bigl(\check\psi_t*f(x\,,\cdot\,,y)\bigr)(0)
     =f(x,0,y)
   \end{equation*}
   uniformly with respect to $(x,y)\in I\times\Omega$. By definition of $A_1(0)$, we finally see that
