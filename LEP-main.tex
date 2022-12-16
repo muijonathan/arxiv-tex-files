@@ -370,7 +370,7 @@ One has the following standard result on convolution with approximate identities
   uniformly with respect to $x\in U$.
 \end{lemma}
 \begin{proof}
-  Since $\rho_t\geq 0$ and $\|\rho_t\|_1=1$ we see that for every $\delta>0$
+  Since $\rho_t\geq 0$ and $\|\rho_t\|_{L^1(\RR^N)}=1$ we see that for every $\delta>0$
   \begin{equation*}
     \begin{split}
       |(\rho_t * f(\cdot,x))(\omega_0)&-f(\omega_0,x)|
@@ -378,7 +378,7 @@ One has the following standard result on convolution with approximate identities
       &\leq\int_{\RR^N}\rho_t(\omega_0-\omega)\bigl|f(\omega,x)-f(\omega_0,x)\bigr|\,d\omega\\
       &\leq\int_{|\omega-\omega_0|\geq\delta}\rho_t(\omega_0-\omega)\bigl|f(\omega,x)-f(\omega_0,x)\bigr|\,d\omega\\
       &\qquad+\int_{|\omega-\omega_0|<\delta}\rho_t(\omega_0-\omega)\bigl|f(\omega,x)-f(\omega_0,x)\bigr|\,d\omega\\
-      &\leq 2\|f\|_\infty\int_{|\omega|\geq\delta}\rho_t(\omega)\,d\omega
+      &\leq 2\|f\|_{\infty}\int_{|\omega|\geq\delta}\rho_t(\omega)\,d\omega
       +\sup_{|\omega-\omega_0|<\delta}\bigl|f(\omega,x)-f(\omega_0,x)\bigr|.
     \end{split}
   \end{equation*}
