@@ -1,0 +1,243 @@
+%% This file is a template for the preparation of articles for
+%% submission to the Bulletin of the Australian Mathematical Society.
+%% Version: 2010-12-07 for baustms.cls v2.1 DET
+\documentclass{baustms}
+%% The default behaviour of the document class 'baustms' is to colour
+%% some words (such as section headings, Theorem, Proof) and to establish
+%% hyperlinks from citations to the entries in the bibliography.
+%% The option 'plain' turns off hyperlinks and colour.
+%\documentclass[plain]{baustms}
+
+%% - packages
+%% The class file loads the following packages
+%% 1) The AmS-LaTeX packages: amsfonts, amssymb, amsmath, amscd, amsthm
+%% 2) txfonts, graphicx, color, enumerate
+
+%% - tables
+%% If your article uses tables you are strongly advised to include the
+%% 'booktabs' package by uncommenting the line below.  Refer to the
+%% package documentation for further instructions.
+%\usepackage{booktabs}
+
+%% - citesort
+%% The \citesort command loads the hypernat package and the natbib
+%% package with option 'sort&compress'.  This means that citations
+%% of the form [3,2,1] will be compressed to [1-3]. Furthermore the `1'
+%% and the `3' will be coloured and linked to the  bibliography.
+\citesort
+
+%% - operator names
+%% Declare all mathematics operators here, for example
+%\DeclareMathOperator{\Hom}{Hom}
+
+%% - theorems etc.
+%% The following commands number theorems, lemmas etc 
+%% in a single sequence, within sections, using the 
+%% Cambridge University Press (Bulletin) style
+\theoremstyle{cupthm}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lemma}[thm]{Lemma}
+\theoremstyle{cupdefn}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{cuprem}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+%\newtheorem{conj}[thm]{Conjecture}
+%\newtheorem{quest}[thm]{Question}
+%\newtheorem{example}[thm]{Example}
+
+\begin{document}
+\runningtitle{Eventual positivity and evolution equations}
+\title{Eventual positivity and asymptotic behaviour for higher-order evolution equations}
+%% If there is more than one author, put \cauthor immediately before
+%% the corresponding author.
+%\cauthor %% mark the next author as corresponding author
+\author[1]{Jonathan Mui}
+\address[1]{School of Mathematics and Statistics, University of Sydney \email{jonathan.mui@sydney.edu.au}}
+%% If there are several authors, list them here
+%\author[2]{Second author}
+%\address[2]{Second address\email{a@net.com}}
+
+%% List the authors, initials and surnames only, for the
+%% running head (left hand page)
+\authorheadline{J. Mui}
+
+%% If there is a dedication, include it here
+%\dedication{Dedicated to ...}
+
+%\support{Include acknowledgement of support here}
+
+%\begin{abstract}
+%All papers must include an abstract of no more than 150 words.
+%\end{abstract}
+
+%% - subject classification and keywords
+%% 2010 American Mathematical Society Subject Classification
+%% Provide only ONE primary classification
+\classification{primary 47D06; secondary 35K25}
+%% Four or five keywords or phrases
+\keywords{one-parameter semigroup, eventual positivity, spectral theory, Banach lattice}
+
+\maketitle
+
+\section{Abstract of PhD Thesis}
+%The main part of the paper begins here.
+% For alignments use AmS-LaTeX constructions not \eqnarray.
+
+Semigroups of linear operators have long been used to study evolution equations in an abstract functional analytical setting. In many applications in natural and social sciences, we are often interested in modelling the time evolution of a quantity that is naturally positive: the population density of a species within a domain, the concentration of a chemical in a diffusion process, the price of a commodity in an economic model, and so on. For linear models, the appropriate functional analytic setting is therefore frequently an ordered function space, such as a \emph{Banach lattice}, and the time evolution of the system is then governed by what is known as a one-parameter semigroup of positive linear operators, or a \emph{positive semigroup} for short.
+
+The study of positive semigroups on Banach lattices is by now a classic topic, and much is known about their stability and asymptotic behaviour, see for example the classic monograph~\cite{AGG} or the more recent text~\cite{BFR}. By contrast, the study of the more subtle phenomenon of \emph{eventual positivity} --- in which, roughly speaking, positivity only occurs for sufficiently large times --- is still relatively young. Eventual positivity for matrix semigroups was studied in~\cite{NT}, and since then has developed into a sub-field of its own right, as a natural extension of the classical Perron-Frobenius theory for positive matrices. Motivated by a case study of the Dirichlet-to-Neumann semigroup~\cite{DD14}, a systematic theory of eventually positive semigroups and resolvents on infinite dimensional Banach lattices was initiated by Daners, Glück and Kennedy in~\cite{DGK1, DGK2}. In subsequent years, the theory has developed in many different directions, as described in the recent survey article~\cite{G22}. In applications, the theory is especially relevant to higher-order evolution equations~\cite{AGRT, DKP, GM}, for which positivity preserving principles are not generally valid. The work in this thesis represents contributions to both the abstract theory of eventual positivity as well as applications to concrete evolution equations.
+
+Chapter 2 begins with a `crash course' in the theory of eventually positive semigroups, featuring a concise review of selected highlights. Although most of this material is already present in~\cite{DGK1,DGK2}, the presentation in the thesis also draws on more recent developments in the theory, and thus features more unified and streamlined proofs. The larger part of Chapter 2 features new results that are published in~\cite{Mui}, and concerns the phenomenon of \emph{local eventual positivity}, which was first discovered in the context of fourth-order evolution equations~\cite{GG-lep, FGG}. An operator-theoretic approach to local eventual positivity was initiated by Arora in~\cite{Ar21}, building upon the Banach lattice techniques of~\cite{DGK1, DGK2}. However, due to restrictive spectral assumptions, these results are often unsuitable to analyse PDE problems on unbounded domains. The work in this chapter is a first step in bridging this gap.
+
+The material in Chapter 3 is a slightly expanded presentation of results obtained in~\cite{DGM}. We study the polyharmonic evolution equation $u_t + (-\Delta)^\alpha u = 0$ on Euclidean space $\mathbb{R}^N$, where $\alpha>1$, and the biharmonic evolution equation $u_t + \Delta^2 u = 0$ on an infinite cylinder $\mathbb{R}\times\Omega$, where $\Omega\subset\mathbb{R}^N$ is a bounded domain with smooth boundary. In both problems, we obtain a result on local uniform convergence of solutions, which imply local eventual positivity under natural assumptions on the initial data. The analysis on $\mathbb{R}^N$ makes use of a simple Fourier transform technique, which forms the foundation of the much more technical analysis on the infinite cylinder. In the latter case, we require detailed estimates on solutions to a parametrised family of fourth-order elliptic boundary-value problems, which is interesting in its own right. In contrast to the existing literature on such equations e.g.\cite{GG-lep, FGG, FF-lep}, our methods do not rely on explicit formulae for heat kernels of the polyharmonic operators, and instead are based on spectral theory and analytic perturbation theory.
+
+%\ack % or \acks
+% Put acknowledgements here
+
+\begin{thebibliography}{99}
+\bibitem{AGRT}
+D.~Addona, F.~Gregorio, A.~Rhandi, and C.~Tacelli, \emph{Bi-Kolmogorov type
+	operators and weighted Rellich's inequalities}, NoDEA Nonlinear
+Differential Equations Appl. \textbf{29} (2022), Paper No. 13, 37.
+DOI:\,\href{https://doi.org/10.1007/s00030-021-00747-y}{\nolinkurl{10.1007/s00030-021-00747-y}}
+
+\bibitem{AGG}
+W.~Arendt, A.~Grabosch, G.~Greiner, U.~Groh, H.~P. Lotz, U.~Moustakas,
+R.~Nagel, F.~Neubrander, and U.~Schlotterbeck, \emph{One-parameter semigroups
+	of positive operators}, Lecture Notes in Mathematics, vol. 1184,
+Springer-Verlag, Berlin, 1986.
+DOI:\,\href{https://doi.org/10.1007/BFb0074922}{\nolinkurl{10.1007/BFb0074922}}
+
+\bibitem{Ar21}
+S.~Arora, \emph{Locally eventually positive operator semigroups}, Journal of Operator Theory, \textbf{88} (2022), No. 1, 203--242.
+DOI:\,\href{http://dx.doi.org/10.7900/jot.2021jan26.2316}{\nolinkurl{10.7900/jot.2021jan26.2316}}
+
+\bibitem{BFR}
+A.~B\'{a}tkai, M.~Kramar~Fijav\v{z}, and A.~Rhandi, \emph{Positive operator
+	semigroups}, Operator Theory: Advances and Applications, vol. 257,
+Birkh\"{a}user/Springer, Cham, 2017.
+DOI:\,\href{https://doi.org/10.1007/978-3-319-42813-0}{\nolinkurl{10.1007/978-3-319-42813-0}}
+
+\bibitem{DD14}
+D.~Daners, \emph{Non-positivity of the semigroup generated by the
+	{D}irichlet-to-{N}eumann operator}, Positivity \textbf{18} (2014), 235--256.
+
+\bibitem{DGK1}
+D.~Daners, J.~Gl\"{u}ck, and J.~B. Kennedy, \emph{Eventually positive
+	semigroups of linear operators}, J. Math. Anal. Appl. \textbf{433} (2016),
+1561--1593.
+DOI:\,\href{https://doi.org/10.1016/j.jmaa.2015.08.050}{\nolinkurl{10.1016/j.jmaa.2015.08.050}}
+
+\bibitem{DGK2}
+D.~Daners, J.~Gl\"{u}ck, and J.~B. Kennedy, \emph{Eventually and asymptotically
+	positive semigroups on {B}anach lattices}, J. Differential Equations
+\textbf{261} (2016), 2607--2649.
+DOI:\,\href{https://doi.org/10.1016/j.jde.2016.05.007}{\nolinkurl{10.1016/j.jde.2016.05.007}}
+
+\bibitem{DGM}
+D.~Daners, J.~Gl\"{u}ck, and J.~Mui, \emph{Local uniform convergence and eventual positivity of solutions to biharmonic heat equations},
+Differential and Integral Equations \textbf{36} (2023), no.~9/10, 727--756.
+DOI:\,\href{https://doi.org/10.57262/die036-0910-727}{\nolinkurl{10.57262/die036-0910-727}}
+
+\bibitem{DKP}
+R.~Denk, M.~Kunze, and D.~Plo\ss, \emph{The bi-Laplacian with Wentzell
+	boundary conditions on Lipschitz domains}, Integral Equations Operator
+Theory \textbf{93} (2021), Paper No. 13, 26.
+DOI:\,\href{https://doi.org/10.1007/s00020-021-02624-w}{\nolinkurl{10.1007/s00020-021-02624-w}}
+
+\bibitem{FF-lep}
+L.~C.~F. Ferreira and V.~A. Ferreira, Jr., \emph{On the eventual local
+	positivity for polyharmonic heat equations}, Proc. Amer. Math. Soc.
+\textbf{147} (2019), 4329--4341.
+DOI:\,\href{https://doi.org/10.1090/proc/14565}{\nolinkurl{10.1090/proc/14565}}
+
+\bibitem{FGG}
+A.~Ferrero, F.~Gazzola, and H.-C. Grunau, \emph{Decay and eventual local
+	positivity for biharmonic parabolic equations}, Discrete Contin. Dyn. Syst.
+\textbf{21} (2008), 1129--1157.
+DOI:\,\href{https://doi.org/10.3934/dcds.2008.21.1129}{\nolinkurl{10.3934/dcds.2008.21.1129}}
+
+\bibitem{GG-lep}
+F.~Gazzola and H.-C. Grunau, \emph{Eventual local positivity for a biharmonic
+	heat equation in {$\mathbb{R}^n$}}, Discrete Contin. Dyn. Syst. Ser. S
+\textbf{1} (2008), 83--87.
+DOI:\,\href{https://doi.org/10.3934/dcdss.2008.1.83}{\nolinkurl{10.3934/dcdss.2008.1.83}}
+
+%\bibitem{GGS}
+%F.~Gazzola, H.-C. Grunau, and G.~Sweers, \emph{Polyharmonic boundary value
+%	problems}, Lecture Notes in Mathematics, vol. 1991, Springer-Verlag, Berlin,
+%2010, Positivity preserving and nonlinear higher order elliptic equations in
+%bounded domains.
+%DOI:\,\href{https://doi.org/10.1007/978-3-642-12245-3}{\nolinkurl{10.1007/978-3-642-12245-3}}
+
+\bibitem{G22}
+J.~Gl\"{u}ck, \emph{Evolution equations with eventually positive solutions}, Euro. Math. Soc. Magazine \textbf{123}, 4--11.
+DOI:\,\href{https://euromathsoc.org/magazine/articles/65}{\nolinkurl{https://euromathsoc.org/magazine/articles/65}}
+
+\bibitem{GM}
+F.~Gregorio and D.~Mugnolo, \emph{Bi-Laplacians on graphs and networks}, J.
+Evol. Equ. \textbf{20} (2020), 191--232.
+DOI:\,\href{https://doi.org/10.1007/s00028-019-00523-7}{\nolinkurl{10.1007/s00028-019-00523-7}}
+
+\bibitem{Mui}
+J.~Mui, \emph{Spectral properties of locally eventually positive operator semigroups}, Semigroup Forum \textbf{106} (2023), 460--480.
+DOI:\,\href{https://doi.org/10.1007/s00233-023-10347-0}{\nolinkurl{10.1007/s00233-023-10347-0}}
+
+\bibitem{NT}
+D.~Noutsos and M.~J. Tsatsomeros, \emph{Reachability and holdability of
+	nonnegative states}, SIAM J. Matrix Anal. Appl. \textbf{30} (2008), 700--712.
+DOI:\,\href{https://doi.org/10.1137/070693850}{\nolinkurl{10.1137/070693850}}
+
+\end{thebibliography}
+
+% alteratively, bibliographies prepared with BibTeX can be included by
+% means of the following commands
+%\bibliographystyle{srtnumbered}
+%\bibliography{mybib}
+
+
+\end{document}
+
+%% *Other constructions*
+
+%% - enumerations
+%% The 'enumerate' package is loaded by the class file and
+%% therefore the following constructions are available.
+To typeset a list of items number (i), (ii), ... use
+\begin{enumerate}[(i)]
+\item first item
+\item second item
+\end{enumerate}
+
+To typeset a list of items number H1, H2, ... use
+\begin{enumerate}[H1]
+\item first item
+\item second item
+\end{enumerate}
+
+
+%% - figures and tables}
+\begin{figure}
+\centering
+%\includegraphics{x.eps}
+\caption{Caption text}\label{fig1:}
+\end{figure}
+
+%% The following example assumes that 'booktabs' package is loaded
+\begin{table}
+\caption{Caption text}\label{tab:1}
+\centering
+\begin{tabular}{cccc}
+\toprule
+\multicolumn{2}{c}{text} & \multicolumn{2}{c}{text}\\
+\cmidrule(r){1-2}\cmidrule(l){3-4}
+\multicolumn{1}{c}{One} & Two & \multicolumn{1}{c}{Three} & Four\\
+\midrule
+1 & 2 & 3 & 4 \\
+1 & 2 & 3 & 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
